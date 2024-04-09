@@ -12,7 +12,7 @@ const Banner = () => {
             {/* Slider-1 */}
             <div id="slide1" className="carousel-item relative w-full">
                 <div className="grid md:grid-cols-3 w-full md:w-5/6 mx-auto items-center">
-                    <div className="md:col-span-2 px-4 md:flex flex-col justify-center">
+                    <div className="md:col-span-2 px-4 md:flex flex-col justify-center animate__animated  animate__fadeInLeft animate__slow">
                         <h1 className="text-4xl lg:text-5xl font-semibold">
                             Exploring the Rich Tapestry of Spin Tourism
                         </h1>
@@ -21,8 +21,9 @@ const Banner = () => {
                         </h3>
                         <div>
                             <button className="btn text-white bg-ctm-primary-color rounded-full px-10">Details View</button>
-                        </div>                    </div>
-                    <div className="md:col-span-1 p-4 pt-10">
+                        </div>
+                    </div>
+                    <div className="md:col-span-1 p-4 pt-10" data-aos="fade-up" data-aos-duration="1000">
                         <img src={slider1} className="h-96 rounded-xl" />
                     </div>
                 </div>

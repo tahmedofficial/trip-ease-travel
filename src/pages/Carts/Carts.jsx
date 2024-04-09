@@ -9,7 +9,7 @@ const Carts = ({ resort }) => {
     const { Image, estate_title, description, Area, Status, facilities, price, location, segment_name } = resort;
 
     return (
-        <div className="card bg-base-100 shadow-xl border-t">
+        <div className="card bg-base-100 shadow-xl border-t" data-aos="fade-up" data-aos-duration="1000">
             <figure className="p-6">
                 <img src={Image} alt="Resort" className="rounded-xl h-64 w-full" />
             </figure>
