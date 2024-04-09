@@ -4,6 +4,8 @@ import slider3 from "../../assets/images/slider3.jpg";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Banner = () => {
+
+    
     return (
         <div className="carousel w-full mt-10">
 

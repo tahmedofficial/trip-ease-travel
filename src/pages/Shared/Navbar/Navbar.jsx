@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import profileImg from "../../../assets/images/slider1.jpg"
 
 const Navbar = () => {
 
@@ -27,8 +28,13 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className="btn bg-ctm-primary-color text-white">Log In</button>
+            <div className="navbar-end gap-3">
+                <div className="btn btn-circle">
+                    <img className="w-full h-full rounded-full border-2 border-ctm-primary-color" src={profileImg} alt="ProfileImg" />
+                </div>
+                <Link to="/signIn">
+                    <button className="btn bg-ctm-primary-color text-white">Log In</button>
+                </Link>
             </div>
         </div>
     );
