@@ -1,0 +1,110 @@
+[
+  {
+    "Image": "https://i.ibb.co/yNTxD82/img1.jpg",
+    "estate_title": "Luxury Resort & Spa",
+    "id": "001",
+    "segment_name": "Resort",
+    "description": "Escape to paradise at our luxury resort and spa. Indulge in unparalleled luxury and relaxation.",
+    "price": "$500/night",
+    "Status": "rent",
+    "Area": "5000 sq ft",
+    "location": "Tropical Island",
+    "facilities": ["pool", "spa", "beach access"]
+  },
+  {
+    "Image": "https://i.ibb.co/M2hCTb6/img2.jpg",
+    "estate_title": "Cozy Mountain Lodge",
+    "id": "002",
+    "segment_name": "Hotel",
+    "description": "Experience the charm of our cozy mountain lodge. Unwind by the fireplace or explore nearby hiking trails.",
+    "price": "$200/night",
+    "Status": "rent",
+    "Area": "1500 sq ft",
+    "location": "Mountain Retreat",
+    "facilities": ["fireplace", "restaurant", "hiking trails"]
+  },
+  {
+    "Image": "https://i.ibb.co/qgTNrGW/img3.jpg",
+    "estate_title": "Beachfront Villa Rental",
+    "id": "003",
+    "segment_name": "Vacation Rental",
+    "description": "Your private beachfront villa awaits! Enjoy ocean views and luxurious amenities for a perfect seaside retreat.",
+    "price": "$1000/night",
+    "Status": "rent",
+    "Area": "3000 sq ft",
+    "location": "Sunny Beach",
+    "facilities": ["private beach", "pool", "bbq area"]
+  },
+  {
+    "Image": "https://i.ibb.co/XLMGqrv/img4.jpg",
+    "estate_title": "City Center Hotel",
+    "id": "004",
+    "segment_name": "Hotel",
+    "description": "Stay in the heart of the city at our modern hotel. Enjoy rooftop pool and dine at our onsite restaurant.",
+    "price": "$300/night",
+    "Status": "rent",
+    "Area": "2000 sq ft",
+    "location": "Downtown Metropolis",
+    "facilities": ["gym", "restaurant", "conference rooms"]
+  },
+  {
+    "Image": "https://i.ibb.co/t3YmQYK/img5.jpg",
+    "estate_title": "Rustic Cabin Retreat",
+    "id": "005",
+    "segment_name": "Vacation Rental",
+    "description": "Unwind in nature at our rustic cabin retreat. Explore scenic trails or relax by the fire pit.",
+    "price": "$150/night",
+    "Status": "rent",
+    "Area": "1000 sq ft",
+    "location": "Forest Getaway",
+    "facilities": ["wood stove", "nature trails", "fire pit"]
+  },
+  {
+    "Image": "https://i.ibb.co/hZ7RT6p/img6.png",
+    "estate_title": "Budget Motel",
+    "id": "006",
+    "segment_name": "Motel",
+    "description": "Affordable accommodation for travelers. Convenient location with parking and complimentary breakfast.",
+    "price": "$50/night",
+    "Status": "rent",
+    "Area": "500 sq ft",
+    "location": "Highway Stop",
+    "facilities": ["parking", "wifi", "continental breakfast"]
+  },
+  {
+    "Image": "https://i.ibb.co/bFkNDvY/img7.jpg",
+    "estate_title": "Family-Friendly Resort",
+    "id": "007",
+    "segment_name": "Resort",
+    "description": "Create unforgettable memories at our family-friendly resort. Splash in the water park or relax by the pool.",
+    "price": "$300/night",
+    "Status": "rent",
+    "Area": "4000 sq ft",
+    "location": "Vacation Destination",
+    "facilities": ["water park", "kids club", "mini golf"]
+  },
+  {
+    "Image": "https://i.ibb.co/kcwNSWY/img8.jpg",
+    "estate_title": "Historic Inn",
+    "id": "008",
+    "segment_name": "Hotel",
+    "description": "Step back in time at our historic inn. Experience old-world charm and hospitality.",
+    "price": "$150/night",
+    "Status": "rent",
+    "Area": "2500 sq ft",
+    "location": "Quaint Town",
+    "facilities": ["antique furnishings", "restaurant", "event space"]
+  },
+  {
+    "Image": "https://i.ibb.co/cCSZZrF/img9.jpg",
+    "estate_title": "Seaside Cottage Rental",
+    "id": "009",
+    "segment_name": "Vacation Rental",
+    "description": "Relax by the sea in our charming seaside cottage. Enjoy ocean views and beach access.",
+    "price": "$200/night",
+    "Status": "rent",
+    "Area": "1200 sq ft",
+    "location": "Coastal Retreat",
+    "facilities": ["ocean views", "deck", "bbq grill"]
+  }
+]
