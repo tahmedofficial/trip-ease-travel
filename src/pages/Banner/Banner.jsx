@@ -5,9 +5,9 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Banner = () => {
 
-    
+
     return (
-        <div className="carousel w-full mt-10">
+        <div className="carousel w-full py-10 bg-rose-50">
 
             {/* Slider-1 */}
             <div id="slide1" className="carousel-item relative w-full">
