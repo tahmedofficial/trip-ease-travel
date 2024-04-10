@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import profileImg from "../../../assets/images/slider1.jpg"
+import profileImg from "../../../assets/images/profile.jpg"
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Navbar = () => {
 
+    const { user, signOutUser } = useContext(AuthContext);
 
     const navItems = <>
         <li><NavLink to="/" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>Home</NavLink></li>
@@ -11,8 +14,14 @@ const Navbar = () => {
         <li><NavLink to="/location" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>Location</NavLink></li>
     </>
 
+    const handleSignOut = () => {
+        signOutUser()
+            .then()
+            .catch()
+    }
+
     return (
-        <div className="bg-rose-50 py-5">
+        <div className="bg-rose-50 pb-5 pt-7">
             <div className="navbar bg-rose-50 md:w-5/6 mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -31,12 +40,18 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-3">
-                    <div className="btn btn-circle">
-                        <img className="w-full h-full rounded-full border-2 border-ctm-primary-color" src={profileImg} alt="ProfileImg" />
+                    <div className="btn btn-circle tooltip" data-tip={user?.displayName}>
+                        <img className="w-full h-full rounded-full border-2 border-ctm-primary-color" src={user ? user?.photoURL : profileImg} alt="ProfileImg" />
                     </div>
-                    <Link to="/signIn">
-                        <button className="btn bg-ctm-primary-color text-white">Log In</button>
-                    </Link>
+                    {
+                        user ?
+                            <Link to="/signIn">
+                                <button onClick={handleSignOut} className="btn bg-ctm-primary-color text-white">Log Out</button>
+                            </Link> :
+                            <Link to="/signIn">
+                                <button className="btn bg-ctm-primary-color text-white">Log In</button>
+                            </Link>
+                    }
                 </div>
             </div>
         </div>

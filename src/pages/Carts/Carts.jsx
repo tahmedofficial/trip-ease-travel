@@ -1,12 +1,26 @@
 import PropTypes from "prop-types";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillDollarCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
 
 
 const Carts = ({ resort }) => {
 
     const { Image, estate_title, description, Area, Status, facilities, price, location, segment_name, id } = resort;
+
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
+
+    const handleViewProperty = () => {
+        if(user){
+            navigate(`/resort/${id}`)
+        }
+        else{
+            navigate("/signIn")
+        }
+    }
 
     return (
         <div className="card bg-base-100 shadow-xl border-t" data-aos="fade-up" data-aos-duration="1000">
@@ -32,9 +46,7 @@ const Carts = ({ resort }) => {
                 <h2 className="btn btn-sm mt-4 bg-rose-600 hover:bg-rose-400 duration-300 text-white text-lg px-5 rounded-full"><AiFillDollarCircle />{price}</h2>
 
                 <div className="card-actions">
-                    <Link to={`/resort/${id}`}>
-                        <button className="text-lg my-6 rounded-full px-10 btn bg-white text-ctm-primary-color border-ctm-primary-color hover:bg-ctm-primary-color hover:text-white duration-300">View Property</button>
-                    </Link>
+                    <button onClick={handleViewProperty} className="text-lg my-6 rounded-full px-10 btn bg-white text-ctm-primary-color border-ctm-primary-color hover:bg-ctm-primary-color hover:text-white duration-300">View Property</button>
                 </div>
             </div>
         </div>

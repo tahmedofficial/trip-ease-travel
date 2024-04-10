@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../providers/AuthProviders";
+import { updateProfile } from "firebase/auth";
 
 
 const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(true);
+    const { signUpUser } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -14,6 +17,20 @@ const SignUp = () => {
         const photo = event.target.photo.value;
         const password = event.target.password.value;
         console.log(name, email, photo, password);
+
+        // Sign up method
+        signUpUser(email, password)
+            .then(result => {
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then()
+                    .catch()
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -42,8 +59,8 @@ const SignUp = () => {
                     <div className="relative">
                         <input
                             className="bg-ctm-gray-color outline-none h-12 w-96 rounded-xl pl-4"
-                            type={showPassword? "password":"text"} name="password" placeholder="Password" />
-                        <div onClick={()=>setShowPassword(!showPassword)} className="absolute top-4 right-4">
+                            type={showPassword ? "password" : "text"} name="password" placeholder="Password" />
+                        <div onClick={() => setShowPassword(!showPassword)} className="absolute top-4 right-4">
                             {
                                 showPassword ? <FaEye />
                                     : <FaEyeSlash />
