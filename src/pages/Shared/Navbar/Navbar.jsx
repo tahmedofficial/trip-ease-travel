@@ -8,7 +8,7 @@ const Navbar = () => {
         <li><NavLink to="/" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>Home</NavLink></li>
         <li><NavLink to="/updateProfile" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>Update Profile</NavLink></li>
         <li><NavLink to="/about" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>About</NavLink></li>
-        <li><NavLink to="/signUp" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>Sign Up</NavLink></li>
+        <li><NavLink to="/location" className={({ isActive }) => isActive ? "border-b-2 duration-300 text-ctm-primary-color font-medium px-3 pb-2 border-ctm-primary-color" : "font-medium"}>Location</NavLink></li>
     </>
 
     return (

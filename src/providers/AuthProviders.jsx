@@ -1,13 +1,36 @@
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import PropTypes from "prop-types";
-import { createContext } from "react";
+import auth from "../firebase/firebase.config";
+import { createContext, useEffect, useState } from "react";
 
 
 export const AuthContext = createContext(null);
 
 const AuthProviders = ({ children }) => {
 
+    const [resortData, setResortData] = useState([]);
 
-    const authInfo = {}
+    const signUpUser = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const signInUser = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+    }
+
+
+    useEffect(() => {
+        fetch("data.json")
+            .then(res => res.json())
+            .then(data => setResortData(data))
+    }, [])
+
+
+    const authInfo = {
+        resortData,
+        signUpUser,
+        signInUser
+    }
 
     return (
         <AuthContext.Provider value={authInfo}>

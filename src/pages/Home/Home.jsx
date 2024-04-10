@@ -1,16 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import Banner from "../Banner/Banner";
 import Carts from "../Carts/Carts";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Home = () => {
 
-    const [resortData, setResortData] = useState([]);
-
-    useEffect(() => {
-        fetch("data.json")
-            .then(res => res.json())
-            .then(data => setResortData(data))
-    }, [])
+    const {resortData} = useContext(AuthContext);
 
     return (
         <div>

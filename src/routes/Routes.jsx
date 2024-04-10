@@ -5,6 +5,8 @@ import About from "../pages/About/About";
 import SignUp from "../pages/SignUp/SignUp";
 import SignIn from "../pages/SignIn/SignIn";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ResortsDetails from "../pages/ResortDetails/ResortsDetails";
+import Location from "../pages/Location/Location";
 
 
 const router = createBrowserRouter([
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path: "/resort/:id",
+                element: <ResortsDetails></ResortsDetails>
+            },
+            {
+                path: "/location",
+                element: <Location></Location>
             },
             {
                 path: "/about",
