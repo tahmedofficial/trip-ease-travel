@@ -1,25 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../providers/AuthProviders";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const SignIn = () => {
 
     const [showPassword, setShowPassword] = useState(true);
+    const { signInUser } = useContext(AuthContext);
+    const location = useLocation();
+    console.log("login page",location);
+    const navigate = useNavigate();
 
-    const handleSignUp = (event) => {
+    const handleSignIn = (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
         const email = event.target.email.value;
-        const photo = event.target.photo.value;
         const password = event.target.password.value;
-        console.log(name, email, photo, password);
+
+        // Sign In User
+        signInUser(email, password)
+            .then(navigate(location?.state ? location.state : "/"))
+            .catch()
+
     }
 
 
     return (
         <div>
-            <form onSubmit={handleSignUp} className="flex flex-col gap-5 items-center px-4 mt-24">
+            <form onSubmit={handleSignIn} className="flex flex-col gap-5 items-center px-4 mt-24">
                 <div className="flex flex-col gap-2">
                     <span>Email</span>
                     <input
@@ -40,7 +49,7 @@ const SignIn = () => {
                         </div>
                     </div>
                 </div>
-                <button className="btn rounded-xl mt-5 hover:bg-slate-500 bg-ctm-primary-color text-white w-96">Sign Up</button>
+                <button className="btn rounded-xl mt-5 hover:bg-slate-500 bg-ctm-primary-color text-white w-96">Log In</button>
             </form>
         </div>
     );

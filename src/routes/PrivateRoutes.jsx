@@ -1,10 +1,26 @@
+import PropTypes from "prop-types";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProviders";
+import { useLocation, Navigate } from "react-router-dom";
 
-const PrivateRoutes = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const PrivateRoutes = ({ children }) => {
+
+    const { user, loading } = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location.pathname);
+
+    if (loading) {
+        return <div className="text-center mt-10"><span className="loading loading-spinner loading-lg"></span></div>
+    }
+
+    if (user) {
+        return children;
+    }
+    return <Navigate state={location.pathname} to="/signIn"></Navigate>
 };
 
 export default PrivateRoutes;
+
+PrivateRoutes.propTypes = {
+    children: PropTypes.node
+}

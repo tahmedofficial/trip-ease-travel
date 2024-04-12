@@ -16,7 +16,6 @@ const SignUp = () => {
         const email = event.target.email.value;
         const photo = event.target.photo.value;
         const password = event.target.password.value;
-        console.log(name, email, photo, password);
 
         // Sign up method
         signUpUser(email, password)

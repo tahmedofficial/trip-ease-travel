@@ -15,8 +15,8 @@ const ResortsDetails = () => {
 
     return (
         <div className="card mx-4 lg:card-side md:grid md:grid-cols-3 bg-base-100 shadow-xl border mt-16">
-            <figure className="col-span-1 p-5"><img className="lg:h-96 w-full rounded-xl" src={Image} alt="resort" /></figure>
-            <div className="px-5 col-span-2 flex flex-col justify-center">
+            <figure className="col-span-1 p-5 animate__animated animate__fadeInLeft animate__slow"><img className="lg:h-96 w-full rounded-xl" src={Image} alt="resort" /></figure>
+            <div className="px-5 col-span-2 flex flex-col justify-center animate__animated animate__fadeInRight animate__slow">
                 <div>
                     <h1 className="text-2xl font-semibold">{estate_title}</h1>
                     <h3 className="text-lg">{description}</h3>

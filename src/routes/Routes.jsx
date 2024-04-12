@@ -7,6 +7,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ResortsDetails from "../pages/ResortDetails/ResortsDetails";
 import Location from "../pages/Location/Location";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/resort/:id",
-                element: <ResortsDetails></ResortsDetails>
+                element: <PrivateRoutes><ResortsDetails></ResortsDetails></PrivateRoutes>
             },
             {
                 path: "/location",
