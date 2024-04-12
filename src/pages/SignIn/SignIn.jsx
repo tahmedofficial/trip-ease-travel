@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
-import { useLocation, useNavigate } from "react-router-dom";
 
 
 const SignIn = () => {
 
     const [showPassword, setShowPassword] = useState(true);
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
-    console.log("login page",location);
     const navigate = useNavigate();
 
     const handleSignIn = (event) => {
@@ -23,6 +23,12 @@ const SignIn = () => {
             .then(navigate(location?.state ? location.state : "/"))
             .catch()
 
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(navigate(location?.state ? location.state : "/"))
+            .catch()
     }
 
 
@@ -51,6 +57,29 @@ const SignIn = () => {
                 </div>
                 <button className="btn rounded-xl mt-5 hover:bg-slate-500 bg-ctm-primary-color text-white w-96">Log In</button>
             </form>
+
+            <div className="flex items-center justify-center">
+                <h3>Do not have Account ?</h3>
+                <Link to="/signUp">
+                    <button className="btn btn-active btn-link">Sign Up</button>
+                </Link>
+            </div>
+
+            <div className="mt-10 flex flex-col md:flex-row justify-center gap-4 px-5">
+                <div className="text-center">
+                    <button onClick={handleGoogleSignIn} className="btn btn-outline text-ctm-primary-color hover:bg-ctm-primary-color border-ctm-primary-color text-lg">
+                        <FaGoogle className="text-2xl" />
+                        <h3>Login With Google</h3>
+                    </button>
+                </div>
+
+                <div className="text-center">
+                    <button className="btn btn-outline text-ctm-primary-color hover:bg-ctm-primary-color border-ctm-primary-color text-lg">
+                        <FaGoogle className="text-2xl" />
+                        <h3>Login With Facebook</h3>
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -9,6 +10,7 @@ const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(true);
     const { signUpUser } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -26,6 +28,8 @@ const SignUp = () => {
                 })
                     .then()
                     .catch()
+
+                navigate("/")
             })
             .catch(error => {
                 console.log(error);
@@ -69,6 +73,13 @@ const SignUp = () => {
                 </div>
                 <button className="btn rounded-xl mt-5 hover:bg-slate-500 bg-ctm-primary-color text-white w-96">Sign Up</button>
             </form>
+
+            <div className="flex items-center justify-center">
+                <h3>Already have Account ?</h3>
+                <Link to="/signIn">
+                    <button className="btn btn-active btn-link">Log In</button>
+                </Link>
+            </div>
         </div>
     );
 };
