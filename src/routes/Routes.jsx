@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ResortsDetails from "../pages/ResortDetails/ResortsDetails";
 import Location from "../pages/Location/Location";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
 
 
 const router = createBrowserRouter([
@@ -25,12 +26,16 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes><ResortsDetails></ResortsDetails></PrivateRoutes>
             },
             {
-                path: "/location",
-                element: <Location></Location>
+                path: "/updateProfile",
+                element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
             },
             {
                 path: "/about",
                 element: <About></About>
+            },
+            {
+                path: "/location",
+                element: <Location></Location>
             },
             {
                 path: "/signUp",

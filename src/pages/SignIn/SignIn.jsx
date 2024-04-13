@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
 
 
 const SignIn = () => {
 
     const [showPassword, setShowPassword] = useState(true);
-    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const { signInUser, signInWithGoogle, signInWithFacebook } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -29,6 +30,16 @@ const SignIn = () => {
         signInWithGoogle()
             .then(navigate(location?.state ? location.state : "/"))
             .catch()
+    }
+
+    const handleFacebookSignIn = () => {
+        signInWithFacebook()
+            .then(navigate(location?.state ? location.state : "/"))
+            .catch(error => {
+                if (error.code === "auth/account-exists-with-different-credential") {
+                    console.log("An account with the same email address already exists with a different authentication method");
+                }
+            })
     }
 
 
@@ -74,8 +85,8 @@ const SignIn = () => {
                 </div>
 
                 <div className="text-center">
-                    <button className="btn btn-outline text-ctm-primary-color hover:bg-ctm-primary-color border-ctm-primary-color text-lg">
-                        <FaGoogle className="text-2xl" />
+                    <button onClick={handleFacebookSignIn} className="btn btn-outline text-ctm-primary-color hover:bg-ctm-primary-color border-ctm-primary-color text-lg">
+                        <FaFacebookF className="text-2xl" />
                         <h3>Login With Facebook</h3>
                     </button>
                 </div>
