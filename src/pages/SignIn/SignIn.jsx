@@ -10,7 +10,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 const SignIn = () => {
 
     const [showPassword, setShowPassword] = useState(true);
-    const { signInUser, signInWithGoogle, signInWithFacebook } = useContext(AuthContext);
+    const { signInUser, signInWithGoogle, signInWithFacebook, successNotify, errorNotify } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -21,23 +21,44 @@ const SignIn = () => {
 
         // Sign In User
         signInUser(email, password)
-            .then(navigate(location?.state ? location.state : "/"))
-            .catch()
+            .then(() => {
+                successNotify("Logged in successfully")
+                navigate(location?.state ? location.state : "/")
+            }
+            )
+            .catch(error => {
+                if (error) {
+                    errorNotify("Enter a valid email and password")
+                }
+            }
+            )
 
     }
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then(navigate(location?.state ? location.state : "/"))
-            .catch()
+            .then(() => {
+                successNotify("Logged in successfully")
+                navigate(location?.state ? location.state : "/")
+            }
+            )
+            .catch(error => {
+                if (error.code === "auth/account-exists-with-different-credential") {
+                    errorNotify("Email address already exists")
+                }
+            })
     }
 
     const handleFacebookSignIn = () => {
         signInWithFacebook()
-            .then(navigate(location?.state ? location.state : "/"))
+            .then(() => {
+                successNotify("Logged in successfully")
+                navigate(location?.state ? location.state : "/")
+            }
+            )
             .catch(error => {
                 if (error.code === "auth/account-exists-with-different-credential") {
-                    console.log("An account with the same email address already exists with a different authentication method");
+                    errorNotify("Email address already exists")
                 }
             })
     }

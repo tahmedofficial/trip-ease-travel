@@ -4,6 +4,8 @@ import auth from "../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FacebookAuthProvider } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
+import { Bounce, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AuthContext = createContext(null);
 
@@ -13,6 +15,30 @@ const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [userProfile, setUserProfile] = useState({});
+
+    const successNotify = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+
+    const errorNotify = (message) => toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
 
     const provider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -69,7 +95,9 @@ const AuthProviders = ({ children }) => {
         signInWithFacebook,
         signInUser,
         signOutUser,
-        setUserProfile
+        setUserProfile,
+        successNotify,
+        errorNotify
     }
 
     return (

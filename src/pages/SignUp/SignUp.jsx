@@ -9,7 +9,7 @@ import { updateProfile } from "firebase/auth";
 const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(true);
-    const { signUpUser } = useContext(AuthContext);
+    const { signUpUser, successNotify, errorNotify } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const handleSignUp = (event) => {
@@ -18,6 +18,22 @@ const SignUp = () => {
         const email = event.target.email.value;
         const photo = event.target.photo.value;
         const password = event.target.password.value;
+
+        // validation
+        if (password.length < 6) {
+            errorNotify("Password must be 6 characters")
+            return
+        }
+
+        if (!/^(?=.*[A-Z]).+$/.test(password)) {
+            errorNotify("Enter an uppercase letter")
+            return
+        }
+
+        if (!/^(?=.*[a-z]).+$/.test(password)) {
+            errorNotify("Enter an lowercase  letter")
+            return
+        }
 
         // Sign up method
         signUpUser(email, password)
@@ -29,6 +45,7 @@ const SignUp = () => {
                     .then()
                     .catch()
 
+                successNotify("Signed Up Successfully")
                 navigate("/")
             })
             .catch(error => {
