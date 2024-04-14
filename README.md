@@ -1,6 +1,6 @@
 # TripEase
 
-- Live link :
+- Live link : https://trip-ease-travel.firebaseapp.com/
 
 ### Implemented packages
 - AOS Package

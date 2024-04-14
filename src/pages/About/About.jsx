@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 
 const About = () => {
@@ -9,6 +10,9 @@ const About = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>About</title>
+            </Helmet>
             {
                 user ? <p>{user.email}</p> : ""
             }

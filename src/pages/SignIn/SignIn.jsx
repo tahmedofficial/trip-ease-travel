@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 
 const SignIn = () => {
@@ -66,6 +67,9 @@ const SignIn = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <form onSubmit={handleSignIn} className="flex flex-col gap-5 items-center px-4 mt-24">
                 <div className="flex flex-col gap-2">
                     <span>Email</span>
@@ -93,7 +97,7 @@ const SignIn = () => {
             <div className="flex items-center justify-center">
                 <h3>Do not have Account ?</h3>
                 <Link to="/signUp">
-                    <button className="btn btn-active btn-link">Sign Up</button>
+                    <button className="btn btn-active btn-link">Register</button>
                 </Link>
             </div>
 

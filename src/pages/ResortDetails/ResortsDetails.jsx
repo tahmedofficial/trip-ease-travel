@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillDollarCircle } from "react-icons/ai";
+import { Helmet } from "react-helmet-async";
 
 
 const ResortsDetails = () => {
@@ -15,6 +16,9 @@ const ResortsDetails = () => {
 
     return (
         <div className="card mx-4 lg:card-side md:grid md:grid-cols-3 bg-base-100 shadow-xl border mt-16">
+            <Helmet>
+                <title>Details</title>
+            </Helmet>
             <figure className="col-span-1 p-5 animate__animated animate__fadeInLeft animate__slow"><img className="lg:h-96 w-full rounded-xl" src={Image} alt="resort" /></figure>
             <div className="px-5 col-span-2 flex flex-col justify-center animate__animated animate__fadeInRight animate__slow">
                 <div>

@@ -4,6 +4,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const SignUp = () => {
@@ -45,7 +46,7 @@ const SignUp = () => {
                     .then()
                     .catch()
 
-                successNotify("Signed Up Successfully")
+                successNotify("Registered Successfully")
                 navigate("/")
             })
             .catch(error => {
@@ -55,6 +56,9 @@ const SignUp = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
             <form onSubmit={handleSignUp} className="flex flex-col gap-5 items-center px-4 mt-24">
                 <div className="flex flex-col gap-2">
                     <span>Name</span>
@@ -88,7 +92,7 @@ const SignUp = () => {
                         </div>
                     </div>
                 </div>
-                <button className="btn rounded-xl mt-5 hover:bg-slate-500 bg-ctm-primary-color text-white w-96">Sign Up</button>
+                <button className="btn rounded-xl mt-5 hover:bg-slate-500 bg-ctm-primary-color text-white w-96">Register</button>
             </form>
 
             <div className="flex items-center justify-center">
