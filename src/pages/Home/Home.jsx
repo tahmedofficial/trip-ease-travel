@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
 
-    const {resortData} = useContext(AuthContext);
+    const { resortData } = useContext(AuthContext);
 
     return (
         <div>

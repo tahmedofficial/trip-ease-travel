@@ -75,14 +75,14 @@ const SignIn = () => {
                     <span>Email</span>
                     <input
                         className="bg-ctm-gray-color outline-none h-12 w-96 rounded-xl pl-4"
-                        type="email" name="email" placeholder="Your Email" />
+                        type="email" name="email" placeholder="Your Email" required />
                 </div>
                 <div className="flex flex-col gap-2">
                     <span>Pssword</span>
                     <div className="relative">
                         <input
                             className="bg-ctm-gray-color outline-none h-12 w-96 rounded-xl pl-4"
-                            type={showPassword ? "password" : "text"} name="password" placeholder="Password" />
+                            type={showPassword ? "password" : "text"} name="password" placeholder="Password" required />
                         <div onClick={() => setShowPassword(!showPassword)} className="absolute top-4 right-4">
                             {
                                 showPassword ? <FaEye />
