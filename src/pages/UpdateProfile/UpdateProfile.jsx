@@ -37,17 +37,17 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div>
+        <div className="md:w-5/6 mx-auto px-3">
             <Helmet>
                 <title>Update Profile</title>
             </Helmet>
             <div className="flex justify-center mt-10">
                 <img className="h-20 w-20 rounded-full border border-ctm-primary-color" src={user ? user?.photoURL : profileImg} alt="" />
             </div>
-            <div className="flex flex-col items-center text-xl gap-2 mt-5 font-medium">
-                {user ? <h3>{user.displayName}</h3> : "Name"}
-                {user ? <h3>{user.email}</h3> : "Email"}
-                {user ? <h3>{user.photoURL}</h3> : "photoURL"}
+            <div className="flex flex-col items-center gap-2 mt-5 font-medium">
+                {user ? <h3 className="bg-ctm-footer-color text-white text-lg py-3 px-10 rounded-xl">{user.displayName}</h3> : "Name"}
+                {user ? <h3 className="bg-ctm-footer-color text-white text-lg py-3 px-10 rounded-xl">{user.email}</h3> : "Email"}
+                {user ? <h3 className="bg-ctm-footer-color text-white py-3 px-10 rounded-xl">{user.photoURL}</h3> : "photoURL"}
             </div>
             {
                 editField ? <form onSubmit={handleUpdateProfile} className="flex flex-col gap-5 items-center px-4 mt-16">
@@ -67,8 +67,6 @@ const UpdateProfile = () => {
                 </form> :
                     <button onClick={() => setEditField(!editField)} className="btn bg-ctm-primary-color text-white rounded-full px-10 flex mx-auto mt-16">Edit Profile</button>
             }
-
-
         </div>
     );
 };

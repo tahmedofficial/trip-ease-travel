@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "Title": "Tea Coffee",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 2,
+        "Title": "Hot Showers",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 3,
+        "Title": "Laundry",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 4,
+        "Title": "Air Conditioning",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 5,
+        "Title": "Free Wifi",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 6,
+        "Title": "Kitchen",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 7,
+        "Title": "Ironing",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    },
+    {
+        "id": 8,
+        "Title": "Lovkers",
+        "description": "A small river named Duden flows by their place and supplies it with the necessary"
+    }
+]

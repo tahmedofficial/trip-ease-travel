@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet-async";
 const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(true);
-    const { signUpUser, successNotify, errorNotify } = useContext(AuthContext);
+    const { signUpUser, setUser, successNotify, errorNotify } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const handleSignUp = (event) => {
@@ -43,7 +43,12 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: photo,
                 })
-                    .then()
+                    .then(() => {
+                        setUser({
+                            displayName: name,
+                            photoURL: photo,
+                        })
+                    })
                     .catch()
                 successNotify("Registered Successfully")
                 navigate("/")

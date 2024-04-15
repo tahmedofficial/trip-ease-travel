@@ -12,9 +12,9 @@ export const AuthContext = createContext(null);
 const AuthProviders = ({ children }) => {
 
     const [resortData, setResortData] = useState([]);
+    const [serviceData, setServiceData] = useState([]);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [userProfile, setUserProfile] = useState({});
 
     const successNotify = (message) => toast.success(message, {
         position: "top-center",
@@ -84,18 +84,24 @@ const AuthProviders = ({ children }) => {
             .then(data => setResortData(data))
     }, [])
 
+    useEffect(() => {
+        fetch("/service.json")
+            .then(res => res.json())
+            .then(data => setServiceData(data))
+    }, [])
+
 
     const authInfo = {
         user,
         resortData,
         loading,
-        userProfile,
+        serviceData,
+        setUser,
         signUpUser,
         signInWithGoogle,
         signInWithFacebook,
         signInUser,
         signOutUser,
-        setUserProfile,
         successNotify,
         errorNotify
     }
